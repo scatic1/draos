@@ -1,0 +1,30 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Work position</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @job_advertisements.each do |job_advertisement| %>
+      <tr>
+        <td><%= job_advertisement.work_position %></td>
+        <td><%= link_to 'Show', showjob_path(job_advertisement) %></td>
+        <td><%= link_to 'Edit', editjobadvertisement_path(job_advertisement) %></td>
+        <td><%= link_to 'Destroy', job_advertisement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job Advertisement', new_advertisement_path %>

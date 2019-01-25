@@ -1,0 +1,42 @@
+<div class="container">
+
+      <div class="bg-faded p-4 my-4">
+<h1>Profile</h1>
+
+		<% user = current_user %>
+		<table class="table">
+			<tr>
+				<th>Ime</th>
+				<td><%= user.name %></td>
+			</tr>
+			<tr>
+				<th>Prezime</th>
+				<td><%= user.surname %></td>
+			</tr>
+			<tr>
+				<th>JMBG</th>
+				<td><%= user.JMBG %></td>
+			</tr>
+			<tr>
+				<th>Datum rođenja</th>
+				<td><%= user.date_of_birth %></td>
+			</tr>
+			<tr>
+				<th>Mjesto rođenja</th>
+				<td><%= user.place_of_birth %></td>
+			</tr>
+			<tr>
+				<th>Telefon</th>
+				<td><%= user.phone %></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><%= user.email %></td>
+			</tr>
+			
+
+		</table>
+		</div>
+
+
+	</div>

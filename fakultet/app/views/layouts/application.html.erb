@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Faculty of Electrical Engineering </title>
+    <%= csrf_meta_tags %>
+<%= javascript_include_tag 'application' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Business Casual - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/business-casual.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+  	 <a style="text-decoration : none" class="tagline-upper no-underline text-center text-heading text-shadow text-white mt-5 d-none nounderline d-lg-block" <%= link_to "Faculty of Electrical Engineering", root_path%></a>
+    <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">Elektrotehnički Fakultet | Zmaja od Bosne BB | 71 000 SARAJEVO</div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4">
+      <div class="container">
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Faculty of Electrical Engineering</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+          <li class="nav-item active px-lg-4">
+          <a class="nav-link text-uppercase text-expanded" <%= link_to "Home", root_path%>
+
+              </a>
+            </li>
+          <% if !logged_in? %>
+
+           <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" <%= link_to "Log in",login_path%></a>
+            </li>
+          <%else%>
+
+
+           <!--<%= auto_session_timeout_js %>-->
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" <%= link_to "#{current_user.name}",about_path%></a>
+
+            </li>
+             <!--Ako je ulogovan admin -->
+            <% if current_user.present? && current_user.category ==  'admin' %>
+             
+            
+           <%end%>
+    <!--Ako je ulogovan pravnik -->
+            <% if current_user.present? && current_user.category ==  'pravnik' %>
+             <li class="nav-item px-lg-4">
+
+                <a class="nav-link text-uppercase text-expanded" <%= link_to "Create New Advertisement",job_advertisements_path%></a>
+            </li>
+             <li class="nav-item px-lg-4">
+
+                <a class="nav-link text-uppercase text-expanded" <%= link_to "Job applications",job_applications_path%></a>
+            </li>
+           <%end%>
+      <!--Ako je ulogovan student -->
+           <%if current_user.present? && current_user.category ==  'student'%>
+
+           <li class="nav-item px-lg-4">
+
+              <a class="nav-link text-uppercase text-expanded" <%= link_to "Exam applications",exam_applications_path%></a>
+          </li>
+           <!-- <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" <%= link_to "Blog",blog_path%></a>
+            </li>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" <%= link_to "Contact",contact_path%></a>
+            </li>-->
+            <%end%>
+<!--Ako je ulogovana studentska sluzba -->
+            <% if current_user.present? && current_user.category ==  'studentskasluzba' %>
+             <li class="nav-item px-lg-4">
+
+                <a class="nav-link text-uppercase text-expanded" <%= link_to "Upiši studenta",results_path%></a>
+            </li>
+            <li class="nav-item px-lg-4">
+               <a class="nav-link text-uppercase text-expanded" <%= link_to "Add subject",subjects_path%></a>
+           </li>
+           <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" <%= link_to "Add exam",exams_path%></a>
+          </li>
+
+           <%end%>
+            <li class="nav-item px-lg-4">
+              <a class="nav-link text-uppercase text-expanded" <%= link_to "Log out",logout_path %></a>
+            </li>
+
+
+
+            <%end%>
+
+
+          </ul>
+        </div>
+
+      </div>
+
+    </nav>
+      <div class="bg-faded p-4 my-4">
+       <% flash.each do |type, message| %>
+      <div class="alert alert-danger"><%= message %></div>
+    <% end %>
+    <%= yield %>
+  </div>
+
+    <footer class="bg-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">Copyright &copy; DRAOS 2019</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="assets/application.js"></script>
+  </body>
+</html>
