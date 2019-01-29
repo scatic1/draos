@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228232320) do
+ActiveRecord::Schema.define(version: 20190125123837) do
 
   create_table "confirmations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "svrha"
@@ -41,6 +41,23 @@ ActiveRecord::Schema.define(version: 20171228232320) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_advertisements_id"], name: "index_job_applications_on_job_advertisements_id"
+  end
+
+  create_table "professors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "name"
+    t.string "surname"
+    t.integer "phone"
+    t.date "date_of_birth"
+    t.string "email"
+    t.string "courses"
+    t.string "department"
+    t.string "publications"
+    t.string "cv"
+    t.string "academic_history"
+    t.string "career_history"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

@@ -13,6 +13,7 @@ end
   resources :exams
   resources :subjects
   resources :results
+  resources :professors
   resources :job_applications
      resources :job_advertisements
 match 'active'  => 'sessions#active',  via: :get

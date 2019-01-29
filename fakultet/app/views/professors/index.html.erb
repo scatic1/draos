@@ -1,0 +1,45 @@
+
+  <div class="row">
+    <div class="col-md-4">
+       <div class="bg-faded p-4 my-4">
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">
+          <strong>Automatic Control and Electronics</strong>
+        </h2>
+        <hr class="divider">
+         <h2 class="text-center text-lg text-uppercase my-0">
+          <strong>Telecommunication</strong>
+        </h2>
+           <hr class="divider">
+             <h2 class="text-center text-lg text-uppercase my-0">
+          <strong>Electronic Powe Engineering</strong>
+        </h2>
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">
+          <strong>Computer Science and Informatics</strong>
+        </h2>
+        <hr class="divider">
+       
+      
+      </div>
+    </div>
+    
+       <div class="col-md-8 card-deck">
+       <% @professors.each do |professor| %>
+      <div class="col-md-4 p-2">
+      <div class="card p-2 bg-light" >
+      
+  <%= image_tag(professor.image, :class=>'card-img-top ')  %>
+
+  <div class="card-body">
+  	
+    <a class="card-text text-center text-lg"<%= link_to "#{professor.name} #{professor.surname}", professor%></a>
+
+  </div>
+</div>
+</div>
+    <% end %>
+    </div>
+    
+   
+  </div>
