@@ -48,6 +48,7 @@ get 'download', to: 'confirmations#index'
    get "new_advertisement"=>"job_advertisements#new", as: :new_advertisement
    get "editjobadvertisement{:id}",to: 'job_advertisements#edit' ,as: :editjobadvertisement
     get "editprofessor{:id}" => "professors#edit", as: :editprofessor
+    get "newprofessor"=>"professors#new", as: :newprofessor
    get ":id", to: 'job_advertisements#show', as: :showjob
    get "show_result{:id}" => "results#show", as: :show_result
    #get "show_result{:id}" => "results#show", as: :show_result
