@@ -1,4 +1,5 @@
 class ProfessorsController < ApplicationController
+   before_action :must_login, only: [:edit,:new]
   def index
   	#@professors = Professor.all
      @professors = Professor.search_professors(params[:search])
@@ -10,10 +11,25 @@ class ProfessorsController < ApplicationController
   end
 
   def new
+     @professor = Professor.new
   end
   def courses
       @professors = Professor.all
       @pom=params[:id]
+
+  end
+  def create
+    @professor = Professor.new(professor_params)
+
+    respond_to do |format|
+      if @professor.save
+        format.html { redirect_to @professors_path, notice: 'Professor was successfully created.' }
+        format.json { render :show, status: :created, location: @professor }
+      else
+        format.html { render :new }
+        format.json { render json: @professor.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit

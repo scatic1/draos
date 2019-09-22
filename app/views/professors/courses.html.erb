@@ -1,9 +1,62 @@
+<%= stylesheet_link_tag '/stylesheets/custom', :media => 'screen' %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+      <form class="form-inline col-md-12 sm-12 my-2 my-lg-0">
+<%= form_tag courses_path(@pom), :method => 'get' do %>
+ <%= text_field_tag :search, params[:search], placeholder: "Enter name...",:class=>"form-control mr-sm-2"%>
+ <button class="btn btn-outline-secondary my-2 my-sm-0 " type="submit">
+ <i class="fa fa-search" aria-hidden="true"></i> Search</button>
+
+<% end %>
 
 
-<div class="col-md-8 card-deck">
+</form>
+</div>
+<div class="row">
+<div class="col-md-12 sm-12">
+<% if current_user.present? && current_user.category ==  'admin' %>
+<%= button_to "+Add new professor",  newprofessor_path, :method => :get , :class=>'btn btn-block btn-info  mt-2' %>
+<%end%>
+</div>
+</div>
+       <div class="bg-faded p-4 my-4">
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">
+              <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Automatic Control and Electronics', courses_path(1) %></a><br>
+        </h2>
+        <hr class="divider">
+         <h2 class="text-center text-lg text-uppercase my-0">
+             <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Telecommunication', courses_path(2) %></a><br>
+
+        </h2>
+           <hr class="divider">
+             <h2 class="text-center text-lg text-uppercase my-0">
+               <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Electronic Power Engineering', courses_path(3) %></a><br>
+        </h2>
+        <hr class="divider">
+        <h2 class="text-center text-lg text-uppercase my-0">
+             <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Computer Science and Informatics', courses_path(4) %></a><br>
+        </h2>
+        <hr class="divider">
+
+
+      </div>
+    </div>
+<div class="col-md-8">
+	<div class="row">
+	<h6 style="color: gray">Departments><% if @pom=="1" %>Automatic control and electronics<%end%>
+	<% if @pom=="2" %>Telecommunication<%end%>
+	<% if @pom=="3" %>Electronic and power engineering<%end%>
+	<% if @pom=="4" %>Computer science and Informatics<%end%></h6>
+	</div>
+
+<div class="row">
+<div class="col-md-12 card-deck">
 
 <% @professors.each do |professor| %>
-<% if professor.department== @pom %>
+<% if professor.department==@pom  %>
 <div class="col-md-4 p-2">
 <div class="card p-2 bg-light" >
 
@@ -18,12 +71,13 @@
 <%= button_to "Delete", professor, method: :delete, :class=>'btn btn-danger' %>
 </div>
 <%end%>
-<%end%>
 </div>
+<%end%>
+
 </div>
 </div>
 <% end %>
 </div>
-
-
+</div>
+</div>
 </div>

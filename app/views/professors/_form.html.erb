@@ -10,73 +10,77 @@
       </ul>
     </div>
   <% end %>
-
+<div class="row ">
+  <div class="col-md-6">
   <div class="form-group">
-    <%= form.label :name %>
-    <%= form.text_field :name,class:"form-control col-sm-5", id: :professor_name %>
+    <h5 style="color: gray"><%= form.label :name %></h5>
+    <%= form.text_field :name,class:"form-control col-md-12 col-sm-5", id: :professor_name %>
   </div>
 
   <div class="form-group">
-    <%= form.label :surname %>
-    <%= form.text_field :surname,class:"form-control col-sm-5", id: :professor_surname %>
+    <h5 style="color: gray"><%= form.label :surname %></h5>
+    <%= form.text_field :surname,class:"form-control col-md-12 col-sm-5", id: :professor_surname %>
   </div>
 
    <div class="form-group">
-    <%= form.label :phone %>
-    <%= form.text_field :phone,class:"form-control col-sm-5", id: :professor_phone %>
+    <h5 style="color: gray"><%= form.label :phone %></h5>
+    <%= form.text_field :phone,class:"form-control col-md-12 col-sm-5",type: :number, id: :professor_phone %>
   </div>
 
   <div class="form-group">
-    <%= form.label :date_of_birth %>
-    <%= form.date_field :date_of_birth,class:"form-control col-sm-5", id: :date_of_birth %>
+    <h5 style="color: gray"><%= form.label :date_of_birth %></h5>
+    <%= form.date_field :date_of_birth,class:"form-control col-md-12 col-sm-5", id: :date_of_birth %>
   </div>
 
    <div class="form-group">
-    <%= form.label :email %>
-    <%= form.text_field :email,class:"form-control col-sm-5", id: :email %>
+    <h5 style="color: gray"><%= form.label :email %></h5>
+    <%= form.text_field :email,class:"form-control col-md-12 col-sm-5", id: :email %>
   </div>
 
   <div class="form-group">
-    <%= form.label :courses %>
-    <%= form.text_field :courses,class:"form-control col-sm-5", id: :courses %>
+    <h5 style="color: gray"><%= form.label :image %></h5>
+    <%= form.text_field :image,class:"form-control col-md-12 col-sm-5", id: :image %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <h5 style="color: gray"><%= form.label :courses %></h5>
+    <%= form.text_area :courses,class:"form-control col-md-12 col-sm-5", id: :courses %>
   </div>
 
   <div class="form-group">
-    <%= form.label :department %>
-    <%= form.text_field :department,class:"form-control col-sm-5", id: :department %>
+    <h5 style="color: gray"><%= form.label :department %></h5>
+    <%= form.text_field :department,class:"form-control col-md-12 col-sm-5",type: :number, id: :department %>
   </div>
 
    <div class="form-group">
-    <%= form.label :publications %>
-    <%= form.text_field :publications,class:"form-control col-sm-5", id: :publications %>
+    <h5 style="color: gray"><%= form.label :publications %></h5>
+    <%= form.text_area :publications,class:"form-control col-md-12 col-sm-5",type: :text_area, id: :publications %>
   </div>
 
-  <div class="form-group">
+  <!--<div class="form-group">
     <%= form.label :cv %>
-    <%= form.text_field :cv,class:"form-control col-sm-5", id: :cv %>
-  </div>
-  <br></br>
+    <%= form.text_field :cv,class:"form-control col-md-12 col-sm-5", id: :cv %>
+  </div>-->
+  <!--<br></br>
   <%= link_to "Download", skini_path(:professor) %>
-  <br></br>
+  <br></br>-->
  <div class="form-group">
-    <%= form.label :academic_history %>
-    <%= form.text_field :academic_history,class:"form-control col-sm-5", id: :academic_history %>
+    <h5 style="color: gray"><%= form.label :academic_history %></h5>
+    <%= form.text_area :academic_history,class:"form-control col-md-12 col-sm-5", id: :academic_history %>
   </div>
 
    <div class="form-group">
-    <%= form.label :career_history %>
-    <%= form.text_field :career_history,class:"form-control col-sm-5", id: :career_history %>
+    <h5 style="color: gray"><%= form.label :career_history %></h5>
+    <%= form.text_area :career_history,class:"form-control  col-md-12 col-sm-5", id: :career_history %>
   </div>
-
-   <div class="form-group">
-    <%= form.label :image %>
-    <%= form.text_field :image,class:"form-control col-sm-5", id: :image %>
+ <div class="actions float-right ">
+    <%= form.submit class: "btn btn-block btn-info " %>
   </div>
-
-
+   
+</div>
+</div>
   </tbody>
 </select>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+ 
 <% end %>
