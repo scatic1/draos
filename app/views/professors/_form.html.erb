@@ -28,7 +28,7 @@
 
   <div class="form-group">
     <%= form.label :date_of_birth %>
-    <%= form.text_field :date_of_birth,class:"form-control col-sm-5", id: :date_of_birth %>
+    <%= form.date_field :date_of_birth,class:"form-control col-sm-5", id: :date_of_birth %>
   </div>
 
    <div class="form-group">
@@ -55,7 +55,9 @@
     <%= form.label :cv %>
     <%= form.text_field :cv,class:"form-control col-sm-5", id: :cv %>
   </div>
-
+  <br></br>
+  <%= link_to "Download", skini_path(:professor) %>
+  <br></br>
  <div class="form-group">
     <%= form.label :academic_history %>
     <%= form.text_field :academic_history,class:"form-control col-sm-5", id: :academic_history %>
@@ -71,9 +73,9 @@
     <%= form.text_field :image,class:"form-control col-sm-5", id: :image %>
   </div>
 
- 
+
   </tbody>
-</select> 
+</select>
   <div class="actions">
     <%= form.submit %>
   </div>

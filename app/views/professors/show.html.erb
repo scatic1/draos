@@ -20,15 +20,38 @@
           <strong>Computer Science and Informatics</strong>
         </h2>
         <hr class="divider">
-       
-      
+
+
       </div>
     </div>
-    
+
+
        <div class="col-md-8">
-       	<h1> <%= @professor.name %></h1>
-<h1> <%= @professor.surname %></h1>
+<table class="table">
+  <div class="bg-faded p-4 my-4">
+    <h1>Profile</h1>
+
+<tr>
+  <th> Name </th>
+<th> <%= @professor.name %></th>
+<div class="col-md-3">
+  <%= image_tag(@professor.image, :class=>'card-img-top ')  %>
+</div>
+</tr>
+
+<tr>
+    <th> Surname </th>
+<th> <%= @professor.surname %></th>
+
+</tr>
+<tr>
+    <th> Courses </th>
+  <th> <%= @professor.courses %></th>
+  </tr>
+  <th> Publications </th>
+<th> <%= @professor.publications %></th>
+
     </div>
-    
-   
+</table>
+</div>
   </div>

@@ -49,13 +49,14 @@ get 'download', to: 'confirmations#index'
    get "editjobadvertisement{:id}",to: 'job_advertisements#edit' ,as: :editjobadvertisement
     get "editprofessor{:id}" => "professors#edit", as: :editprofessor
     get "newprofessor"=>"professors#new", as: :newprofessor
+    get "course/:id"=>"professors#courses", as: :courses
    get ":id", to: 'job_advertisements#show', as: :showjob
    get "show_result{:id}" => "results#show", as: :show_result
    #get "show_result{:id}" => "results#show", as: :show_result
    get "show_exam{:id}" => "exams#show", as: :show_exam
    get "/apply_exam_application/:id" => "exam_applications#new", as: :apply_exam_application
   get "/showexam/:id/" => "exam_applications#show", as: :showexam
- 
+
 
 
 
