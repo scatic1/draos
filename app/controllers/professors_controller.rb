@@ -8,6 +8,7 @@ class ProfessorsController < ApplicationController
   def show
   	@professors = Professor.all
      @professor=Professor.find_by_id(params[:id])
+     @pom=@professor.department
   end
 
   def new
@@ -18,12 +19,16 @@ class ProfessorsController < ApplicationController
       @pom=params[:id]
 
   end
+  def zapdf
+     @professors = Professor.all
+      @professor=Professor.find_by_id(params[:id])
+  end
   def create
     @professor = Professor.new(professor_params)
 
     respond_to do |format|
       if @professor.save
-        format.html { redirect_to @professors_path, notice: 'Professor was successfully created.' }
+        format.html { redirect_to professors_url, notice: 'Professor was successfully created.' }
         format.json { render :show, status: :created, location: @professor }
       else
         format.html { render :new }

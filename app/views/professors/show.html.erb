@@ -1,23 +1,28 @@
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
   <div class="row">
     <div class="col-md-4">
        <div class="bg-faded p-4 my-4">
-        <hr class="divider">
+       <hr class="divider">
         <h2 class="text-center text-lg text-uppercase my-0">
-          <strong>Automatic Control and Electronics</strong>
+              <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Automatic Control and Electronics', courses_path(1) %></a><br>
         </h2>
-        <hr class="divider">
+        <hr class="divider"> 
          <h2 class="text-center text-lg text-uppercase my-0">
-          <strong>Telecommunication</strong>
+             <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Telecommunication', courses_path(2) %></a><br>
+
         </h2>
            <hr class="divider">
              <h2 class="text-center text-lg text-uppercase my-0">
-          <strong>Electronic Powe Engineering</strong>
+               <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Electronic Power Engineering', courses_path(3) %></a><br>
         </h2>
         <hr class="divider">
         <h2 class="text-center text-lg text-uppercase my-0">
-          <strong>Computer Science and Informatics</strong>
+             <a style="color: black" class="card-text text-center text-lg"<%= link_to 'Computer Science and Informatics', courses_path(4) %></a><br>
         </h2>
         <hr class="divider">
 
@@ -26,32 +31,118 @@
     </div>
 
 
-       <div class="col-md-8">
-<table class="table">
-  <div class="bg-faded p-4 my-4">
-    <h1>Profile</h1>
+    <div class="col-md-8 ">
+        <div class="row ">
+            <h6 style="color: gray">Departments><% if @pom=="1" %>Automatic control and electronics<%end%>
+            <% if @pom=="2" %>Telecommunication<%end%>
+            <% if @pom=="3" %>Electronic and power engineering<%end%>
+            <% if @pom=="4" %>Computer science and Informatics<%end%>
+            ><%= @professor.name %> <%= @professor.surname %></h6>
+        </div>
+        <div class="row  ">
+             <div class="col-md-4 pr-2 pl-2 pt-2">
+                 <%= image_tag(@professor.image, :class=>'card-img-top ')  %>
+             </div>
+             <div class="col-md-8 bg-faded p-2 my-4">
+          
+                  <div class="row p-2 ">
+                     <h4 style="color: gray">Personal informations</h4>
+                  </div>
+                  <div class="row p-3">
+                       <h6 style="color: black"><%= @professor.name %> <%= @professor.surname %></h4>
+                  </div>
+                  <div class="row  p-3">
+                       <h6 style="color: black">Department:
+                        <% if @professor.department=="1" %>Automatic control and electronics<%end%>
+                        <% if @professor.department=="2" %>Telecommunication<%end%>
+                        <% if @professor.department=="3" %>Electronic and power engineering<%end%>
+                        <% if @professor.department=="4" %>Computer science and Informatics<%end%>
+                        </h6>
+                  </div>
+                  <div class="row  p-3">
+                       <h6 style="color: black">Born on <%= @professor.date_of_birth %></h4>
+                  </div>
+                
 
-<tr>
-  <th> Name </th>
-<th> <%= @professor.name %></th>
-<div class="col-md-3">
-  <%= image_tag(@professor.image, :class=>'card-img-top ')  %>
-</div>
-</tr>
+             </div>
+        </div>
+         <div class="row  bg-faded p-2 my-4">
+           <div class="col-md-6">
+            <h4 style="color: gray">Teaching courses</h4>
+             <h6><%= @professor.courses %></h6>
+           </div>
+            <div class="col-md-6">
+               <section class="container" id="contact">
+              <h4 style="color: gray">Contact informations</h4>
+                <div class="row">
+        
+                <div class="col-sm-2">Phone:</div>
+                <div class="col-sm-4"><h6 style="color: black"> <%= @professor.phone %></h6></div>
+                </div>
+              <div class="row">
+                <div class="col-sm-2">Email:</div>
+                <div class="col-sm-4"><a href="mailto:<%= @professor.email %>"> <%= @professor.email %></a>
+                </div>
+              </div>
+          </section>
+        </div>
+      </div>
 
-<tr>
-    <th> Surname </th>
-<th> <%= @professor.surname %></th>
-
-</tr>
-<tr>
-    <th> Courses </th>
-  <th> <%= @professor.courses %></th>
-  </tr>
-  <th> Publications </th>
-<th> <%= @professor.publications %></th>
-
+        <div class="row pt-3">
+          <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0  " style="color: black">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Academic history
+        </button>
+      </h2>
     </div>
-</table>
-</div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body" >
+         <%= @professor.academic_history %>
+      </div>
+    </div>
   </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Career history
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <%= @professor.career_history %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Publications
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+         <%= @professor.publications %>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+       
+    </div>
+
+</div>
+
+
+
+    
+
+
+ 

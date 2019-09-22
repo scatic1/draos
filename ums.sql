@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 02, 2018 at 09:57 PM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Generation Time: Sep 22, 2019 at 10:57 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -134,6 +134,41 @@ INSERT INTO `job_applications` (`id`, `name`, `surname`, `JBMG`, `date_of_birth`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `professors`
+--
+
+DROP TABLE IF EXISTS `professors`;
+CREATE TABLE IF NOT EXISTS `professors` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `surname` varchar(255) DEFAULT NULL,
+  `phone` int(11) DEFAULT NULL,
+  `date_of_birth` date DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `courses` varchar(255) DEFAULT NULL,
+  `department` varchar(255) DEFAULT NULL,
+  `publications` text,
+  `cv` varchar(255) DEFAULT NULL,
+  `academic_history` text,
+  `career_history` text,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `professors`
+--
+
+INSERT INTO `professors` (`id`, `name`, `surname`, `phone`, `date_of_birth`, `email`, `courses`, `department`, `publications`, `cv`, `academic_history`, `career_history`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Betsey ', 'Stevenson', 62123456, '2019-09-04', 'betsey@gmail.com', 'Organic Chemistry,\r\nMaterial Chemistry,\r\nPolymers of Intrinsic Microporosity (PIMs),\r\nGas Separation,\r\nMixed Matrix Membranes (MMMs),\r\nHeterogeneous Catalysis', '1', 'Yin, Huajie., Yang, Bin., Chua, Yeong Zen., Szymoniak, Paulina., Carta, Mariolino., Malpass-Evans, Richard., McKeown, Neil B.., Harrison, Wayne J.., Budd, Peter M.., Schick, Christoph., Böhning, Martin. & Schönhals, Andreas. (2019). Effect of Backbone Rigidity on the Glass Transition of Polymers of Intrinsic Microporosity Probed by Fast Scanning Calorimetry. ACS Macro Letters 8(8), 1022-1028.\r\nhttps://cronfa.swan.ac.uk/Record/cronfa51966 doi:10.1021/acsmacrolett.9b00482\r\nLau, Cher Hon., Lu, Tian-dan., Sun, Shi-Peng., Chen, Xianfeng., Carta, Mariolino. & Dawson, Daniel M.. (2019). Continuous flow knitting of a triptycene hypercrosslinked polymer. Chemical Communications 55(59), 8571-8574.\r\nhttps://cronfa.swan.ac.uk/Record/cronfa51373 doi:10.1039/c9cc03731d', '', 'I graduated in Organic Chemistry in Italy in 2004 and then moved to Cardiff University to obtain a PhD in Organic Material Chemistry in 2008, with a project based on the synthesis and characterisation of novel Polymers of Intrinsic Microporosity (PIMs) under the supervision of Prof Neil B. McKeown.', 'After the PhD I worked as a Post-Doctoral Research Associate at Cardiff University (2008-2013) and the University of Edinburgh (2014-2017). In October 2017, I have been appointed Lecturer in Chemistry at Swansea University.\r\n\r\nIn 2017 I have successfully finished the Postgraduate Certificate Academic Practice (PgCAP) at the University of Edinburgh for which I have become a Fellow of the Higher Education Academy (HEA).\r\n\r\nI am also a member of the Royal Society of Chemistry (MRSC) and a STEM Ambassador.', 'https://www.professorwatchlist.org/images/betseystevenson_0.jpg', '2019-09-03 00:00:00', '2019-09-22 15:15:50'),
+(2, 'Bob', ' Laramee', 60260987, '1956-08-19', 'r.s.laramee@swansea.ac.uk', 'Data visualization,\r\nFlow visualization,\r\nInformation visualization,\r\nVisual analytics,\r\nBig data visualization', '3', 'McNabb, Liam., Laramee, Robert S. & Fry, Richard. (2018). Dynamic Choropleth Maps – Using Amalgamation to Increase Area Perceivability. Presented at 2018 22nd International Conference Information Visualisation (IV),, 284-293. Fisciano, Italy: doi:10.1109/iV.2018.00056\r\nhttps://cronfa.swan.ac.uk/Record/cronfa48655\r\nRees, D.. & Laramee, R. S.. (2019). A Survey of Information Visualization Books. Computer Graphics Forum\r\nhttps://cronfa.swan.ac.uk/Record/cronfa48247 doi:10.1111/cgf.13595\r\nLaramee, Robert S.., Turkay, Cagatay. & Joshi, Alark. (2018). Visualization for Smart City Applications. IEEE Computer Graphics and Applications 38(5), 36-37.\r\nhttps://cronfa.swan.ac.uk/Record/cronfa45221 doi:10.1109/MCG.2018.053491729', NULL, 'I graduated in Organic Chemistry in Italy in 2004 and then moved to Cardiff University to obtain a PhD in Organic Material Chemistry in 2008, with a project based on the synthesis and characterisation of novel Polymers of Intrinsic Microporosity (PIMs) under the supervision of Prof Neil B. McKeown.', 'After the PhD I worked as a Post-Doctoral Research Associate at Cardiff University (2008-2013) and the University of Edinburgh (2014-2017). In October 2017, I have been appointed Lecturer in Chemistry at Swansea University.\r\n\r\nIn 2017 I have successfully finished the Postgraduate Certificate Academic Practice (PgCAP) at the University of Edinburgh for which I have become a Fellow of the Higher Education Academy (HEA).\r\n\r\nI am also a member of the Royal Society of Chemistry (MRSC) and a STEM Ambassador.', 'https://www.sciencegallery.org/sites/default/files/styles/large/public/Andrea_portrait_staff.jpg?itok=FZY10KpP', '2019-09-22 00:00:00', '2019-09-22 00:00:00'),
+(4, 'Bertie', ' Muller', 60452412, '1940-09-12', 'berndt.muller@swansea.ac.uk', 'Artificial Intelligence,\r\nTechnology Ethics,\r\nFormal Languages,\r\nMathematical Logic,\r\nModels of Concurrency,\r\nFormal Verification', '4', 'Williams, Steve., Ware, J. Mark. & Müller, Berndt. (2019). Ethical Surveillance: Applying Deep Learning and Contextual Awareness for the Benefit of Persons Living with Dementia. Presented at Artificial Intelligence in Health,-47.Springer Nature Switzerland AG. doi:10.1007/978-3-030-12738-1_3\r\nhttps://cronfa.swan.ac.uk/Record/cronfa48681\r\nWilliams, Steve., Ware, J Mark. & Muller, Bertie. Preserving safety, privacy and mobility of persons living with Dementia by recognising uncharacteristic out-door movement using Recurrent Neural Networks with low computing capacity. Presented at Proceedings of the First Joint Workshop on AI in Health organized as part of the Federated AI Meeting (FAIM 2018), co-located with AAMAS 2018, ICML 2018, IJCAI 2018 and ICCBR 2018,(01.01.2018)AIH 2018 - Joint Workshop on AI in Health.\r\nhttp://ceur-ws.org/Vol-2142/\r\nhttps://cronfa.swan.ac.uk/Record/cronfa43607', NULL, 'I graduated in Organic Chemistry in Italy in 2004 and then moved to Cardiff University to obtain a PhD in Organic Material Chemistry in 2008, with a project based on the synthesis and characterisation of novel Polymers of Intrinsic Microporosity (PIMs) under the supervision of Prof Neil B. McKeown.', 'After the PhD I worked as a Post-Doctoral Research Associate at Cardiff University (2008-2013) and the University of Edinburgh (2014-2017). In October 2017, I have been appointed Lecturer in Chemistry at Swansea University.\r\n\r\nIn 2017 I have successfully finished the Postgraduate Certificate Academic Practice (PgCAP) at the University of Edinburgh for which I have become a Fellow of the Higher Education Academy (HEA).\r\n\r\nI am also a member of the Royal Society of Chemistry (MRSC) and a STEM Ambassador.', 'https://bertiemuller.files.wordpress.com/2012/01/img_0961-4-e1523358943203.jpg?w=246&h=328', '2019-09-22 22:42:34', '2019-09-22 22:42:34');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `results`
 --
 
@@ -162,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `results` (
   `proba` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `index_results_on_subject_id` (`subject_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -197,7 +232,9 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 ('20171227234605'),
 ('20171228140419'),
 ('20171228232209'),
-('20171228232320');
+('20171228232320'),
+('20190125123837'),
+('20190708173113');
 
 -- --------------------------------------------------------
 
