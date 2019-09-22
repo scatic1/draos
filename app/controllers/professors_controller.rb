@@ -19,10 +19,6 @@ class ProfessorsController < ApplicationController
       @pom=params[:id]
 
   end
-  def zapdf
-     @professors = Professor.all
-      @professor=Professor.find_by_id(params[:id])
-  end
   def create
     @professor = Professor.new(professor_params)
 
